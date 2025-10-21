@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 import { getTrendingMovies } from "../api/tmdb-api";
-
+import AddToPlaylistsIcon from '../components/cardIcons/PlaylistAdd'
 
 const TrendingMoviePage = (props) => {
 
@@ -34,7 +34,7 @@ const TrendingMoviePage = (props) => {
       title="Trending Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return <AddToPlaylistsIcon movie={movie} />
       }}
     />
   );
