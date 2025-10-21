@@ -9,6 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import LanguageIcon from '@mui/icons-material/Language';
 
 
 const root = {
@@ -60,6 +61,37 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+
+<Paper 
+        component="ul" 
+        sx={{...root}}
+      >
+        <li>
+          <Chip label=" Production Countries" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_countries.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={{...chip}} />
+          </li>
+        ))}
+      </Paper>
+
+  
+<Paper component="ul" sx={{ ...root }}>
+  <li>
+    <Chip
+      icon={<LanguageIcon />}
+      label="Original Language"
+      sx={{ ...chip }}
+      color="primary"
+    />
+  </li>
+  <li>
+    <Chip label={movie.original_language.toUpperCase()} sx={{ ...chip }} />
+  </li>
+</Paper>
+
+       
 
       <Fab
         color="secondary"
